@@ -30,4 +30,14 @@ function initializeElements()
     {
         var todo = { id: todoId++, text: text, completed: false };
         todos.push(todo);
+        renderTodos();
+    }
+    function renderTodos() 
+    {
+        todoList.innerHTML = '';
+        todos.forEach(function(todo) {
+            var li = document.createElement('li');
+            li.textContent = todo.text;
+            todoList.appendChild(li);
+        });
     }
