@@ -26,18 +26,20 @@ function initializeElements()
         this.TryAddTodo(todoInput.value);
     }.bind(this));
 
-    function addTodo(text) 
-    {
-        var todo = { id: todoId++, text: text, completed: false };
-        todos.push(todo);
-        renderTodos();
-    }
-    function renderTodos() 
-    {
-        todoList.innerHTML = '';
-        todos.forEach(function(todo) {
-            var li = document.createElement('li');
-            li.textContent = todo.text;
-            todoList.appendChild(li);
-        });
-    }
+    function addTodo(text) {
+    var todo = { id: todoId++, text: text, completed: false };
+    todos.push(todo);
+    
+    // Solo agregar el nuevo elemento
+    appendTodoElement(todo);
+}
+
+function appendTodoElement(todo) {
+    var li = document.createElement('li');
+    li.setAttribute('data-id', todo.id);
+    li.className = 'todo-item';
+    li.innerHTML = `
+        <span>${todo.text}</span>
+    `;
+    todoList.appendChild(li);
+}
