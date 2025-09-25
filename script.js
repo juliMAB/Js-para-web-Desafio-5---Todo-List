@@ -1,4 +1,4 @@
-var todoInput, addBtn, todoList, todoCount, clearBtn;
+var todoInput, addBtn, todoList, todoCount;
 var todos = [];
 var todoId = 0;
 
@@ -10,7 +10,6 @@ function initializeElements()
     addBtn = document.getElementById('add-btn');
         todoList = document.getElementById('todo-list');
         todoCount = document.getElementById('todo-count');
-        clearBtn = document.getElementById('clear-completed');
     }
 
     function TryAddTodo(text) 
